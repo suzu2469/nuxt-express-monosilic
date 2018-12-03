@@ -1,0 +1,26 @@
+{
+  "name": "nuxt-monosilic-express",
+  "version": "0.1.0",
+  "description": "Let's make a monosilic app using Nuxt",
+  "main": "server/main.js",
+  "repository": "https://github.com/suzu2469/nuxt-monosilic-express",
+  "author": "Souma Suzuki",
+  "license": "MIT",
+  "private": false,
+  "prettier": {
+    "semi": false,
+    "sigleQuote": true
+  },
+  "scripts": {
+    "start": "npm run build && node server/main.js",
+    "build": "nuxt build",
+    "dev": "nodemon ./server/main.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nuxt": "^2.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
