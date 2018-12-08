@@ -1,21 +1,33 @@
 const express = require('express')
+const faker = require('faker')
 
-const mockUsers = [{
-  name: 'Souma Suzuki',
-  age: 22
-}]
-
-function usersRouter(nuxt) {
-  const router = express.Router()
-
-  router.get('/', (req, res, next) => {
-    res.context = {
-      users: mockUsers
-    }
-    return next()
+const maximumUserCount = 1000
+const mockUsers = Array.from(Array(maximumUserCount).keys()).map(id => ({
+  id,
+  name: faker.internet.userName(),
+  age: faker.random.number({
+    min: 0,
+    max: 80
   })
+}))
 
-  return router
-}
+const router = express.Router()
 
-module.exports = usersRouter
+router.get('/', (req, res, next) => {
+  res.data = {
+    users: mockUsers
+  }
+  return next()
+})
+
+router.get('/:id', (req, res, next) => {
+  const id = parseInt(req.params.id)
+  const user = mockUsers.find(u => u.id === id)
+
+  res.data = {
+    user
+  }
+  return next()
+})
+
+module.exports = router

@@ -14,13 +14,14 @@
   "scripts": {
     "start": "npm run build && node server/main.js",
     "build": "nuxt build",
-    "dev": "nodemon ./server/main.js"
+    "dev": "NODE_ENV=development nodemon ./server/main.js"
   },
   "dependencies": {
     "express": "^4.16.4",
     "nuxt": "^2.3.4"
   },
   "devDependencies": {
+    "faker": "^4.1.0",
     "nodemon": "^1.18.7"
   }
 }

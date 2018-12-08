@@ -1,13 +1,9 @@
 const express = require('express')
 
-function rootRouter() {
-  const router = express.Router()
+const router = express.Router()
 
-  router.get('/', (req, res, next) => {
-    return next()
-  })
+router.get('/', (req, res, next) => {
+  return next()
+})
 
-  return router
-}
-
-module.exports = rootRouter
+module.exports = router

@@ -20,8 +20,8 @@ async function main() {
   }
 
   /* Register routes */
-  app.use('/', routeRouter())
-  app.use('/users', usersRouter())
+  app.use('/', routeRouter)
+  app.use('/users', usersRouter)
 
   app.use(nuxt.render)
 

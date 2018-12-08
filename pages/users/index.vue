@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Users</h1>
+    <h1>Users List</h1>
     <ul>
       <li
         v-for="(user, key) in users"
@@ -14,7 +14,7 @@
 export default {
   asyncData({ res }) {
     return {
-      users: res.context.users
+      users: res.data.users ? res.data.users : []
     }
   }
 }
